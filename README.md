@@ -143,3 +143,107 @@ Python is a fantastic language that automatically identifies the type of data fo
 4. Don't Use Keywords
 
 ---
+
+## Data Types in Python
+
+<img src="./dataType.png" width="60%"/>
+
+Can you store milk in a basket or can you use a bottle to store fruits?
+
+We are using different types of containers to store different things.
+
+While the bottle can hold milk or water or juice, it will hold only liquids.
+
+Similarly,
+
+- A variable of type ***string*** (like the variable - *custName*), can store only strings.
+- A variable of type **int** (like the variable - *custAge)* can store only integers.
+- A variable of type **boolean** (like the variable - *custMaritalStatus)* can store either true or false.
+- A variable of type **float** (like the variable - fruitWeight*)* can store only decimal values.
+
+*The type of data a variable can hold is called its* **Data type**.
+It may be **int**, **string, boolean, float,** etc. (A variable of type Boolean can either be *True* or *False).*
+
+| Data Type | Example         | Description     |
+| --------- | --------------- | --------------- |
+| `str`     | `"Alice"`       | Text values     |
+| `int`     | `25`            | Whole numbers   |
+| `float`   | `3.14`          | Decimal numbers |
+| `bool`    | `True`, `False` | Logical values  |
+
+## Type **Casting in Python**
+
+Type Casting is the method to convert the variable data type into a certain data type in order to the operation required to be performed by users.
+
+There can be two types of Type Casting in Python –
+
+- Implicit Type Casting
+- Explicit Type Casting
+
+### Implicit Type Casting
+
+In this, Python **converts the data type** into another data type **automatically**. In this process, users don’t have to involve in this process.
+
+### Explicit Type Casting
+
+In this, Python needs **user involvement to convert the variable data type** into a certain data type in order to the operation required.
+
+Mainly type casting can be done with these data type functions:
+
+- **int():** int() function take float or string as an argument and return int type object.
+- **float():** float() function takes int or string as an argument and returns float type object.
+- **str():** str() function take float or int as an argument and return string type object.
+- **bool():** bool() function take float, string or int as an argument and return a boolean-type object. Number other than 0 change into True. Empty String change into False.
+
+## Many Values to Multiple Variables
+
+Python allows you to assign values to multiple variables in one line.
+
+Ex➖
+
+```
+x,y,z= "box", "pencil", "eraser"
+
+print(x)    # box
+print(z)    # pencil
+print(y)    # eraser
+# The number of variables matches the number of values, or else you will get an error
+```
+
+## One Value to Multiple Variables
+
+Python allows you to assign the *same* value to multiple variables in one line.
+
+Ex➖
+
+```cpp
+a=b=c="Maggi"
+print(a)    # Maggi
+print(b)    # Maggi
+print(c)    # Maggi
+```
+
+---
+
+## Mathematical Operators
+
+The mathematical operators in Python are :
+
+- **Addition Operator**
+- **Subtraction Operator**
+- **Multiplication Operator**
+- **Division Operator**
+- **Modulo Operator** => gives the remainder
+- **Exponentiation Operator** => compute the power of any number
+
+## String Concatenation
+
+- Concatenation means a series of interconnected things.
+- Use **+** to join two or more string
+
+```
+  a="Hii...."
+  b="Sam...."
+  print(a+b)          # Hii....Sam....
+```
+
