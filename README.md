@@ -236,6 +236,8 @@ The mathematical operators in Python are :
 - **Modulo Operator** => gives the remainder
 - **Exponentiation Operator** => compute the power of any number
 
+---
+
 ## String Concatenation
 
 - Concatenation means a series of interconnected things.
@@ -247,3 +249,188 @@ The mathematical operators in Python are :
   print(a+b)          # Hii....Sam....
 ```
 
+## Comparison Operators
+
+Comparison operators are used for comparing two values.
+
+- There are 6 comparison operators:
+  - **> (Greater Than)**
+  - **>= (Greater Than Equal To)**
+  - **< (Less Than)**
+  - **<= (Less Than Equal To)**
+  - **== (Equal)**
+  - **!= (not Equal)**
+- The result of a comparison operator is always a boolean value.
+
+## Logical Operators
+
+A logical operator is a symbol or word used to connect two or more expressions.
+
+## Types of Logical Operators
+
+Python provides three logical operators:
+
+1. and
+2. or
+3. not
+
+## Assignment Operators
+
+Assignment operators are used to assign values to variables.
+
+- The most common is `=`, which assigns the right-hand side value to the left-hand side variable.
+- Python also supports compound assignment operators.
+
+### Types of Assignment Operators:
+
+| Operator | Description             | Example          |
+| -------- | ----------------------- | ---------------- |
+| =        | Assign value            | a = 5            |
+| +=       | Add and assign          | a += 2 (a = a+2) |
+| -=       | Subtract and assign     | a -= 2 (a = a-2) |
+| \*=      | Multiply and assign     | a *= 3 (a = a*3) |
+| /=       | Divide and assign       | a /= 2 (a = a/2) |
+| %=       | Modulo and assign       | a %= 2 (a = a%2) |
+| //=      | Floor divide and assign | a //= 2          |
+| \*\*=    | Exponent and assign     | a \*\*= 2        |
+
+## Membership Operators
+
+Membership operators are used to test whether a value is a member of a sequence (like string, list, tuple, etc.).
+
+### Types of Membership Operators:
+
+| Operator | Description                 |
+| -------- | --------------------------- |
+| in       | Returns True if present     |
+| not in   | Returns True if not present |
+
+### Note: Membership checks are case-sensitive.
+
+## Identity Operators
+
+Identity operators compare memory locations (i.e., whether two variables point to the same object).
+
+### Types of Identity Operators:
+
+| Operator | Description                          |
+| -------- | ------------------------------------ |
+| is       | Returns True if objects are same     |
+| is not   | Returns True if objects are not same |
+
+```python
+a = 100
+b = 100
+print(a is b)
+
+x = "hello"
+y = "hello"
+print(x is y)
+
+z = "hello world"[0:5]
+print(x == z)
+print(x is z)
+
+```
+
+```
+a = [1, 2]
+b = a
+c = [1, 2]
+
+print(a is b)       # True (same memory)
+print(a is c)       # False (different memory)
+print(a == c)       # True (same values)
+```
+
+```python
+num1 = 256
+num2 = 256
+print(num1 is num2)       # True (cached)
+
+name1 = "Python"
+name2 = "Py" + "thon"
+print(name1 is name2)     # True (interned string)
+```
+
+```
+x = 100
+y = 100
+z = 101
+
+print(x is y)       # True (in small integer range cache)
+print(x is not z)   # True
+```
+
+### Note:
+
+- `is` checks memory identity, not just value.
+- Use `==` for equality and `is` for identity.
+
+### Understanding Caching and Interned Strings
+
+**What is it?**
+
+Caching is an optimization technique where **Python reuses objects** instead of creating new ones every time—this saves memory and increases performance.
+
+### 1. Integer Caching:
+
+- Python automatically **caches integers from -5 to 256**.
+- This means when you assign `a = 100` and `b = 100`, **both point to the same memory location**.
+- Python **caches small integers** in the range `5` to `256`.
+- These integers are pre-allocated and shared to improve performance.
+- When you assign values in this range, Python reuses the existing object instead of creating a new one.
+
+```
+a = 100
+b = 100
+print(a is b)  # True → both point to the same memory location
+```
+
+- But outside this range, integers are not guaranteed to be cached:
+
+```
+x = 300
+y = 300
+print(x is y)  # False → different memory locations
+```
+
+### 2. Interned Strings:
+
+**What is string interning?**
+
+Interning means Python stores only **one copy of some strings** (like literals or identifiers) to **save memory** and make comparisons faster.
+
+### Automatic Interning:
+
+When you create two **identical string literals**, Python stores them **in the same memory**.
+
+Identical strings created as **literals** are often stored in the same memory.
+
+```
+s1 = "hello"
+s2 = "hello"
+print(s1 is s2)  # True → interned string
+```
+
+## Conditional Statements
+
+Conditional Statements in Python perform different computations or actions depending on whether a specific Boolean constraint evaluates to true or false.
+
+- Conditional statements are used **to decide the flow of execution based on different conditions**. If a condition is true, you can perform one action and if the condition is false, you can perform another action.
+- Through Conditional Statements, we can control which code needs to run or which code will not run.
+
+For Example: the traffic light controls the flow of vehicles on the road.
+
+- Depending upon the color of the light, the actions happened.
+- If the light is green, then it is a signal to move.
+- If the light is red then it is a signal to stop.
+
+## Different Types of Conditional Statements
+
+There are four types of conditional statements in Python.
+
+1. If statement
+2. If…Else statement
+3. If…Elif…Else statement
+4. Nested If
