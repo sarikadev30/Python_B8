@@ -377,7 +377,7 @@ Caching is an optimization technique where **Python reuses objects** instead of 
 
 - Python automatically **caches integers from -5 to 256**.
 - This means when you assign `a = 100` and `b = 100`, **both point to the same memory location**.
-- Python **caches small integers** in the range `5` to `256`.
+- Python **caches small integers** in the range `-5` to `256`.
 - These integers are pre-allocated and shared to improve performance.
 - When you assign values in this range, Python reuses the existing object instead of creating a new one.
 
@@ -434,3 +434,61 @@ There are four types of conditional statements in Python.
 2. If…Else statement
 3. If…Elif…Else statement
 4. Nested If
+
+## Ternary Operator
+
+- Ternary operators also known as **conditional expressions** are operators that evaluate something based on a condition being true or false.
+- It was added to Python in version **2.5.**
+- It simply allows testing a condition in a **single line** replacing the multiline if-else making the code compact.
+- Syntax➖
+  ```
+  [on_true] if [expression] else [on_false]
+  ```
+- For ex-
+
+  ```
+  # to check whether a number is odd or even
+  a=10;
+  print("Even Number") if(a%2==0) else print("Odd Number");
+
+  x = 5
+  result = "Greater" if x > 10 else "Equal" if x == 10 else "Less"
+  print(result)
+  ```
+
+## WHILE LOOP
+
+```
+  starting_point  # called as initialization
+
+  while(till_when_he_will_jump):     # condition to terminate the loop
+
+	# operation that is to be performed
+
+	how_many_jump_at_a_time          # Increment/decrement
+```
+
+### Break
+
+- **Break** means to come out of the loop and stop the execution.
+
+### Continue
+
+- **Continue** is basically saying go back to the condition.
+
+## The else Statement with While in Python
+
+With the else statement we can run a block of code once when the condition no longer is true:
+
+```python
+i = 1
+while i < 6:
+  print(i)
+  i += 1
+else:
+  print("i is no longer less than 6")
+```
+
+## FOR LOOP
+
+## NESTED LOOPS
