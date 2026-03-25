@@ -492,3 +492,692 @@ else:
 ## FOR LOOP
 
 ## NESTED LOOPS
+
+## DATA TYPES
+
+### 1. Primitive Data Types (also called basic or built-in types)
+
+These are the most **basic types of data**, directly supported by the Python language.
+
+| Data Type | Description                      | Example         |
+| --------- | -------------------------------- | --------------- |
+| `int`     | Integer numbers                  | `10`, `-5`, `0` |
+| `float`   | Decimal (floating point) numbers | `3.14`, `-0.1`  |
+| `bool`    | Boolean values (True or False)   | `True`, `False` |
+| `str`     | Text (string of characters)      | `"Hello"`       |
+
+> **Note:** These are immutable (cannot be changed after creation).
+
+---
+
+### 2. Non-Primitive Data Types (also called complex or user-defined types)
+
+These are built using primitive types.
+They can store **multiple values** and offer **more functionality**.
+
+| Data Type         | Description                     | Example                 |
+| ----------------- | ------------------------------- | ----------------------- |
+| `list`            | Ordered, mutable collection     | `[1, 2, 3]`             |
+| `tuple`           | Ordered, immutable collection   | `(1, 2, 3)`             |
+| `set`             | Unordered, unique items         | `{1, 2, 3}`             |
+| `dict`            | Key-value pairs                 | `{"name": "Sam"}`       |
+| `array`           | Like lists, from `array` module | `array('i', [1, 2, 3])` |
+| `class`, `object` | Custom types defined by user    | OOP structures          |
+| `function`        | Callable object                 | `def greet(): ...`      |
+
+## What are Mutability and Immutability
+
+## Mutability
+
+In Python, mutability means you can directly modify an object after the creation
+. For example, a list is a mutable object. After creating a list, you can add, modify, or remove elements from it.
+
+## Immutability
+
+In Python, immutability means you cannot directly modify an object after the creation
+. For example, Tuple is an immutable object. After creating a tuple, you cannot add, modify, or remove elements from it.
+
+## Sets
+
+- Sets are used to store multiple items in a single variable.
+- Sets are declared using { } without a colon.
+- Set items are unordered (which means that the items in a set do not have a defined order), unchangeable (meaning that we cannot change the items after the set has been created), and do not allow duplicate values.
+- No fetching possible (No Indexing and Slicing)
+- We can add or delete the data.
+- Data within the sets are automatically sorted.
+- They contain only unique data. (**Data Duplication not possible**)
+- **Syntax ⇒ `{** item1,item2, item3, ... }`
+- **Example➖**
+  ```python
+  s={1,3,4,5,8}
+  print(s)           # {1, 3, 4, 5, 8}
+  print(type(s))     # <class 'set'>
+  ```
+- Since Sets consist of sorted and unique data, searching for a particular element within the set is very quick.
+
+## Tuples
+
+- Sibling of List
+- **Immutable Data Object** ➖ Once you create the tuple, you can’t manipulate it. (no addition, deletion, or replacement)
+- We can
+  - Create Tuple
+  - Indexing and Slicing
+  - Create a new tuple by merging two or more tuples.
+- A safer option for data collection
+  - **Example** ⇒ Students’ marks if stored in a list manipulation can be possible (as addition, deletion, and changes are applicable) but Tuple is **immutable** hence, safer than a list
+- When the objective is to collect the data and has no further objective of editing it ⇒ **Use TUPLE**
+
+## Dictionary
+
+- Python dictionary is an **ordered collection of items**.
+- As of Python version 3.7, dictionaries are *ordered*. In Python 3.6 and earlier, dictionaries are *unordered*.
+- Dictionaries are **optimized to retrieve values when the key is known.**
+- A dictionary is a collection that is **changeable** and **does not allow duplicates**.
+- Dictionaries are written **with curly brackets** and **have keys and values.**
+- Holds data as **`key-value`** pair
+- No concept of an index system and hence they are unordered.
+- To fetch the data we use keys.
+- A dictionary can’t have two keys with the same name. [ **keys must be unique and values can repeat**]
+- Dictionaries are mutable, so we can
+  - add a new key-value pair
+  - replace the value not a key
+  - delete a key-value pair
+- **Syntax**➖
+  ```python
+  dict={
+  	"key1": value,
+  	"key2": "value",
+  }
+  ```
+
+While the values can be of any data type and can repeat, keys must be of **immutable type (string, number, or tuple with immutable elements) and must be unique**.
+
+## Functions
+
+A block of code designed to perform a particular task; they are very useful in making code simplified and manageable.
+
+```
+  def channel_1():
+      x="Sam";
+      print(x);
+
+  channel_1()
+  channel_1()
+  channel_1()
+  channel_1()
+```
+
+### Default Arguments
+
+### Variable-Length Arguments
+
+### Keyworded Arguments => Arguments passed as name=value.
+
+## Scope of Variables
+
+### Local Scope
+
+```
+def greet():
+    message = "Hello"
+    print(message)  # message is local to this function
+
+greet()
+# print(message)  # Error: message is not defined
+```
+
+### Enclosing Scope (Nonlocal)
+
+An enclosing scope refers to the scope of a function that contains another nested function.
+Variables in this outer function are not local to the inner function, but they are not global either — they’re in the enclosing scope.
+
+To access and modify a variable from an enclosing scope inside a nested function, we use the nonlocal keyword.
+Without nonlocal, Python would treat message in inner() as a new local variable.
+
+```
+	def outer():
+    msg = "Hello"
+
+    def inner():
+        nonlocal msg
+        msg = "Hi"
+        print("Inner:", msg)
+
+    inner()
+    print("Outer:", msg)
+
+	outer()
+
+```
+
+### Global Scope
+
+```
+x = 10  # Global variable
+
+def print_x():
+    print(x)
+
+print_x()
+```
+
+If modifying global:
+
+```
+x = 5
+
+def change():
+    global x
+    x = 10
+
+change()
+print(x)  # Output: 10
+```
+
+### Built-in Scope
+
+The built-in scope contains the names of all built-in functions, exceptions, and objects provided by Python. These are always available unless shadowed.
+
+These come from the **builtins** module, and examples include:
+
+```
+  len()
+
+  type()
+
+  print()
+
+  max(), min()
+
+  sum()
+```
+
+Exception, ValueError, etc.
+
+Python looks for a variable in this order: Local → Enclosing → Global → Built-in
+print(len("Python")) # 'len' is a built-in function
+
+## Python Exception
+
+Exceptions are runtime errors that occur when a program encounters something unexpected or invalid during execution.
+Instead of crashing the program, Python allows us to handle these exceptions
+
+```
+  print(10 / 0)
+```
+
+### Why Exceptions Happen ?
+
+- File not found
+- Invalid input
+- Dividing by zero
+- Accessing an index that doesn’t exist
+- Working with wrong data types
+
+### Benefits of Using Exceptions:
+
+- Prevents program from crashing
+- Improves user experience with meaningful error messages
+- Helps in debugging
+
+### try-except block
+
+Used to catch and handle exceptions that occur in a block of code to prevent program crash.
+
+```
+  try:
+    a = 10 / 0
+  except ZeroDivisionError:
+    print("Cannot divide by zero!")
+
+```
+
+### Multiple except blocks
+
+To handle different types of exceptions separately with custom responses.
+
+```
+try:
+    num = int("abc")
+except ValueError:
+    print("Invalid conversion to int")
+except ZeroDivisionError:
+    print("Zero division")
+```
+
+### Catching multiple exceptions together
+
+To catch multiple related exceptions using a single except clause.
+
+```
+try:
+    # Some code
+    pass
+except (ValueError, ZeroDivisionError) as e:
+    print("Caught exception:", e)
+```
+
+### Generic exception handling
+
+Catch any kind of exception, useful when the exact exception type is unknown.
+
+```
+try:
+    x = 10 / 0
+except Exception as e:
+    print("Error occurred:", e)
+```
+
+### finally block
+
+Code in finally always runs — whether or not an exception occurs.
+
+```
+try:
+    f = open("sample.txt")
+except FileNotFoundError:
+    print("File not found.")
+finally:
+    print("This block always runs.")
+```
+
+### Raising exceptions
+
+To manually trigger an exception when a specific condition is violated.
+
+```
+  def divide(a, b):
+      if b == 0:
+          raise ValueError("b cannot be zero")
+      return a / b
+
+  divide(10, 0)
+```
+
+### User-defined exceptions
+
+```
+class NegativeAgeError(Exception):
+    pass
+
+age = -2
+if age < 0:
+    raise NegativeAgeError("Age cannot be negative")
+```
+
+## File Handling
+
+### Files
+
+- Files are a way to store data permanently on your computer.
+- Python can open files, read their contents, write new information, and close them when done.
+- Files can be text-based (like `.txt`), or more structured formats like `.csv`.
+
+**Key Concepts:**
+
+- **Opening a file:**
+  Before reading or writing, we must open a file.
+- **Closing a file:**
+  After finishing with file operations, we close it, so the system knows we’re done and all changes are saved.
+- **File Modes:**
+  Determine how we interact with the file (read-only, write-new, append, etc.)
+
+---
+
+### Need of Files
+
+If you need to store large amounts of data, user preferences, or logs, relying on variables isn’t enough. Files let you:
+
+- Preserve data after the program ends.
+- Share data between different runs of your program.
+- Process bigger data sets that you can’t hard-code into variables.
+
+```
+  file = open("data.txt", "r")  # opens data.txt in read mode
+  print(file)
+
+
+  file.close()  # close the file after finishing
+```
+
+```
+  with open("data.txt", "r") as f:
+    content = f.read()
+    print(content)
+  # File is automatically closed after the with-block ends
+```
+
+## Locating Modules in Python
+
+When you import a module in Python using import module_name, Python looks for that module in a sequence of directories. This sequence is stored in the list sys.path.
+
+### What is sys.path?
+
+sys.path is a list of directory paths that Python interpreter searches through when trying to locate a module you want to import.
+
+It is defined in the sys module, so you must import sys to access it.
+
+Python follows this order:
+
+- Looks in the current directory ('')
+
+- Then in site-packages (user or system installed)
+
+- Then in standard library paths
+
+- If not found, it raises a ModuleNotFoundError
+
+### Adding Custom Paths
+
+You can also manually add paths to sys.path at runtime:
+
+```
+import sys
+sys.path.append('/my/custom/module/path')
+import mymodule
+```
+
+This is useful if:
+
+- You have a shared module in a separate directory.
+- You want to avoid moving files around.
+
+## Absolute vs Relative Path
+
+| **Aspect**            | **Absolute Path**                                             | **Relative Path**                                                      |
+| --------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| **Definition**        | A complete path that starts from the root directory.          | A path that starts from the current working directory.                 |
+| **Begins with**       | Root symbol — e.g., `/` on Linux/Mac, `C:\` on Windows.       | Folder/file name, `.` (current directory), or `..` (parent directory). |
+| **Always valid?**     | Yes — it uniquely identifies the file/location in the system. | Only valid when referenced from a specific directory.                  |
+| **Example (Windows)** | `C:\Users\Sam\Documents\project\file.txt`                     | `project\file.txt` or `..\Documents\file.txt`                          |
+| **Example (Linux)**   | `/home/sam/project/file.txt`                                  | `project/file.txt` or `../file.txt`                                    |
+
+In short:
+
+Use an absolute path when you need the exact location in the filesystem (independent of where your program is run from).
+
+Use a relative path when working with files relative to your current working directory, making your code more portable within a project folder.
+
+## What is `pickle` in Python?
+
+Imagine you have a Python object (like a list, dictionary, or even a custom class), and you want to **save it to a file** so that you can **use it later** — maybe even after restarting your program or computer.
+
+That's where the `pickle` module comes in.
+
+## Why Use Pickle?
+
+- To **store data permanently** (like saving app state, ML models, game progress, etc.)
+- To **transfer Python data** between different scripts or machines
+
+---
+
+## 🔧 Two Main Functions
+
+| Function        | Purpose                                |
+| --------------- | -------------------------------------- |
+| `pickle.dump()` | Save (serialize) Python object to file |
+| `pickle.load()` | Load (deserialize) object from file    |
+
+## Python Packages
+
+A package is a directory containing a special **init**.py file (can be empty) and multiple modules. Packages help organize modules in a hierarchical way.
+
+Structure Example:
+
+```
+  mypackage/
+├── **init**.py
+├── math_utils.py
+└── string_utils.py
+```
+
+Use Case: Encapsulate related modules for better structure and reuse.
+
+### **init**.py
+
+is a special Python file used to indicate that a directory is a Python package.
+
+- Without it (in Python versions < 3.3), the directory wouldn’t be recognized as a package.
+
+- In modern Python (≥ 3.3), it’s optional, but still widely used for:
+  - Package initialization
+
+  - Controlling what gets imported
+
+  - Organizing internal logic
+
+```
+  # math_utils.py
+def square(n):
+    return n * n
+
+# string_utils.py
+def reverse(s):
+    return s[::-1]
+
+# main.py
+from mypackage import math_utils, string_utils
+print(math_utils.square(4))
+print(string_utils.reverse("hello"))
+```
+
+## COLLECTION MODULE
+
+The `collections` module provides alternatives to built-in containers like `dict`, `list`, `set`, and `tuple`.
+The collections module in Python provides a set of specialized container datatypes that extend the built-in types like dict, list, set, and tuple. These are optimized and provide additional functionalities that make certain tasks easier and more efficient.
+These are:
+
+1. **Counter**
+2. **deque**
+3. **defaultdict**
+4. **namedtuple**
+
+## TIME MODULE
+
+- Definition : The `time` module provides functions to work with time-related tasks such as delays, measuring execution time, and formatting time and dates.
+- **Use Cases:**
+  - Add delays in programs (e.g., games, loaders)
+  - Benchmark how long code takes to run
+  - Format and display current time
+- **Commonly Used Functions**
+  | Function | Description |
+  | -------------------------- | -------------------------------------------------- |
+  | `time.time()` | Returns current time in seconds since epoch |
+  | `time.sleep(seconds)` | Suspends execution for the given number of seconds |
+  | `time.ctime([secs])` | Converts time in seconds to a readable string |
+  | `time.localtime([secs])` | Converts time to local time struct |
+  | `time.strftime(format, t)` | Formats a struct_time as a string |
+  | `time.perf_counter()` | High-resolution performance timer |
+- **Epoch** in Python (and Computers)
+  The **Epoch** is a fixed point in time used as a reference for measuring time in computing.
+  In most systems (including Python), **Epoch time** is:
+  > January 1, 1970, at 00:00:00 UTC
+  > This is also known as **Unix Time** or **POSIX Time**.
+- Difference between localtime() and ctime()
+  | Feature | `time.localtime()` | `time.ctime()` |
+  | ---------------------- | -------------------------------------- | ------------------------------- |
+  | **Returns** | `time.struct_time` (tuple-like object) | String |
+  | **Readable?** | No (raw object) | Yes (formatted time string) |
+  | **Can extract parts?** | Yes (year, hour, etc.) | No (need parsing) |
+  | **Use Case** | When you want to **manipulate time** | When you want to **print time** |
+
+## DATE TIME MODULE
+
+The `datetime` module provides classes to **work with dates and times** in both simple and complex ways. It is part of Python’s standard library.
+
+---
+
+## REGEX MODULE
+
+### **Core Functions of `re` Module**
+
+| Function       | Description                            |
+| -------------- | -------------------------------------- |
+| `re.search()`  | Searches for the first match           |
+| `re.findall()` | Returns a list of all matches          |
+| `re.match()`   | Checks for a match at the **start**    |
+| `re.sub()`     | Replaces pattern with something else   |
+| `re.compile()` | Compiles a pattern into a regex object |
+
+---
+
+## **Basic Regex Patterns (Metacharacters)**
+
+| Pattern | Meaning                            | Example Match                                  |
+| ------- | ---------------------------------- | ---------------------------------------------- |
+| `.`     | Any character except newline       | `"c.t"` → `cat`, `cut`                         |
+| `^`     | Start of string                    | `"^Hi"` matches `Hi`                           |
+| `$`     | End of string                      | `"bye$"` matches `goodbye`                     |
+| `*`     | 0 or more repeats                  | `"go*gle"` matches `ggle`, `google`, `gooogle` |
+| `+`     | 1 or more repeats                  | `"lo+l"` → `lol`, `lool`                       |
+| `?`     | 0 or 1 repeat                      | `"colou?r"` matches `color`, `colour`          |
+| `{n}`   | Exactly n times                    | `"a{3}"` → `aaa`                               |
+| `{n,m}` | Between n and m times              | `"a{2,4}"` → `aa`, `aaa`, `aaaa`               |
+| `[]`    | Matches a set of characters        | `"[aeiou]"`                                    |
+| `\d`    | Digit (0–9)                        | `"a\d"` → `a2`                                 |
+| `\D`    | Non-digit                          | `"\D"` matches `a`, `!`                        |
+| `\w`    | Word character (a-z, A-Z, 0–9, \_) |                                                |
+| `\s`    | Whitespace                         | `"Hello\sWorld"`                               |
+| `       | `                                  | OR                                             |
+| `()`    | Grouping                           | `"(ha)+"` → `ha`, `hahaha`                     |
+
+---
+
+## Python Threads
+
+threading module allows you to run multiple threads (tasks) at once.
+
+### Methods:
+
+start(): Starts the thread.
+
+run(): Defines the task to run.
+
+join(): Waits for the thread to finish.
+
+### Lock
+
+Prevents multiple threads from modifying shared data simultaneously.
+
+### Daemon Thread
+
+Background thread that automatically exits when the main thread finishes.
+
+### Timer
+
+Delays execution of a function by a certain amount of time.
+
+### GIL (Global Interpreter Lock)
+
+Ensures only one thread executes Python bytecode at a time.
+
+```
+def task():
+    print("Running")
+
+t = threading.Thread(target=task)
+t.start()
+t.join()  # tells the main program to wait for thread t to finish before moving on.
+
+```
+
+## Python Queue
+
+Used for thread-safe task queues.
+
+### Types:
+
+Queue() – FIFO (First-In, First-Out)
+
+LifoQueue() – Last-In, First-Out
+
+PriorityQueue() – Elements sorted by priority
+
+### Methods:
+
+put(): Add item.
+
+get(): Remove item.
+
+empty(): Check if empty.
+
+task_done(): Signal task completion.
+
+join(): Block until all tasks are done.
+
+```
+from queue import Queue
+
+q = Queue()
+q.put("A")
+print(q.get())
+
+```
+
+## OS Interface
+
+Interacts with the operating system.
+
+Common Methods:
+
+os.rename(src, dst) – Rename file or folder.
+
+os.listdir(path) – List directory contents.
+
+os.remove(path) – Delete file.
+
+os.getcwd() – Get current directory.
+
+os.chdir(path) – Change directory.
+
+os.stat(path) – Get file info.
+
+os.path.isdir() – Check if path is directory.
+
+os.mkdir() – Make directory.
+
+os.makedirs() – Make nested directories.
+
+os.access(path, mode) – Check permission.
+
+os.walk(path) – Generator for traversing directory trees.
+
+os.system(cmd) – Execute system command.
+
+os.popen(cmd) – Run command and get output.
+
+os.environ – Access environment variables.
+
+```
+import os
+print(os.getcwd())
+os.system("echo Hello")
+```
+
+## Python Logging
+
+Used to log events and errors.
+
+### Levels:
+
+**DEBUG:** Detailed info for diagnosis.
+
+**INFO:** Confirmation that things are working.
+
+**WARNING:** Something unexpected.
+
+**ERROR:** Problem preventing function.
+
+**CRITICAL:** Serious error.
+
+```
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logging.info("Information")
+logging.error("An error occurred")
+```
+
+---
+
+Happy Coding!........
