@@ -918,6 +918,15 @@ That's where the `pickle` module comes in.
 | `pickle.dump()` | Save (serialize) Python object to file |
 | `pickle.load()` | Load (deserialize) object from file    |
 
+### Why Store in Binary (Pickled) Format?
+
+| Reason                        | Explanation                                                         |
+| ----------------------------- | ------------------------------------------------------------------- |
+| ✅ Python object preservation | It keeps all object properties (types, structure, etc.) intact      |
+| ✅ Faster loading/saving      | Binary is more efficient to read/write compared to text             |
+| ✅ Supports complex objects   | You can store classes, dictionaries, even custom objects            |
+| ✅ Reuse without reprocessing | Skip recomputation or reinitialization of data structures or models |
+
 ## Python Packages
 
 A package is a directory containing a special **init**.py file (can be empty) and multiple modules. Packages help organize modules in a hierarchical way.
